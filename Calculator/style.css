@@ -1,0 +1,35 @@
+nav{
+    background-color: darkslategray;
+    color: rgb(10, 37, 37);
+    padding: 10px;
+}
+
+.container{
+    position: absolute;
+    top: 29%;
+    left: 7%;
+
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+}
+.grid-item{
+    padding: 15px;
+    background-color: rgb(28, 37, 37);
+    color: antiquewhite;
+    text-align: center;
+    font-size: 20px;
+;
+}
+
+.grid-item:hover{
+    background-color: rgb(48, 51, 41);
+}
+input{
+    width: 81.5%;
+    height: 70px;
+
+    position: absolute;
+    top: 15%;
+    left: 8%;
+
+}

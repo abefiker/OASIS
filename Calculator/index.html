@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <title>Calculator</title>
+</head>
+
+<body>
+    <nav>
+        <h1>Calculator</h1>
+    </nav>
+    <main>
+        <input type="text" name="" id="result">
+        <div class="container" id="whole">
+            <button class="grid-item number">1</button>
+            <button class="grid-item number">2</button>
+            <button class="grid-item number">3</button>
+            <button class="grid-item number">4</button>
+            <button class="grid-item number">5</button>
+            <button class="grid-item number">6</button>
+            <button class="grid-item number">7</button>
+            <button class="grid-item number">8</button>
+            <button class="grid-item number">9</button>
+            <button class="grid-item number">0</button>
+            <button class="grid-item operator">+</button>
+            <button class="grid-item operator">-</button>
+            <button class="grid-item operator">/</button>
+            <button class="grid-item operator">*</button>
+            <button class="grid-item operator">%</button>
+            <button class="grid-item operator">=</button>
+            <button class="grid-item number">.</button>
+            <button class="grid-item" id="del">del</button>
+            <button class="grid-item" id="clear">clear</button>
+        </div>
+    </main>
+    <script>
+        const resultInput = document.getElementById('result');
+        const buttonNumber = document.querySelectorAll('.number');
+        const buttonOperator = document.querySelectorAll('.operator');
+
+        const del = document.getElementById('del');
+        const clear = document.getElementById('clear');
+
+        let currentInput = '';
+        let result = 0;  
+        buttonNumber.forEach(but => {
+            but.addEventListener('click', () => {
+                currentInput += but.textContent;
+                resultInput.value = currentInput;
+            });
+        });
+
+        buttonOperator.forEach(but => {
+            but.addEventListener('click', () => {
+
+                if(but.textContent === '='){
+                    result = eval(currentInput);
+                    resultInput.value = " = " + result;
+                    currentInput = '';  
+                }else{
+                    currentInput += but.textContent;
+                    resultInput.value = currentInput;
+                }
+            });
+        });
+
+        del.addEventListener('click' , () => {
+            currentInput = currentInput.slice(0,-1);
+            resultInput.value = currentInput;
+        });
+
+        clear.addEventListener('click', () => {
+            currentInput = '';
+            resultInput.value = '';
+        });
+
+
+    </script>
+</body>
+
+</html>
